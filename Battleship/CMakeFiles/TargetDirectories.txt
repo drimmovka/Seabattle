@@ -1,0 +1,3 @@
+/mnt/c/Users/drimm/WorkSpace/Battleship/CMakeFiles/battleship.dir
+/mnt/c/Users/drimm/WorkSpace/Battleship/CMakeFiles/edit_cache.dir
+/mnt/c/Users/drimm/WorkSpace/Battleship/CMakeFiles/rebuild_cache.dir
