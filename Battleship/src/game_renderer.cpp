@@ -23,7 +23,7 @@ GameRenderer::GameRenderer(int width, int height)
 
 GameRenderer::~GameRenderer() = default;
 
-void GameRenderer::renderGameMap(GameMap& game_map) {
+void GameRenderer::renderGameMap(const GameMap& game_map) {
     // clear vector here
     for (int y = 0; y < game_map_height_; y++) {
         for (int x = 0; x < game_map_height_; x++) {

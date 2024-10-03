@@ -25,7 +25,13 @@ ShipManager::ShipManager(ShipManager&& other)
     : ships_(std::move(other.ships_))
 {}
 
-ShipManager::~ShipManager() = default;
+// CHECK IF IT IS CORRECT
+// MB USE SMART PTR
+ShipManager::~ShipManager() {
+    for (auto& ship : ships_) {
+        delete ship;
+    }
+}
 
 ShipManager& ShipManager::operator=(const ShipManager& other) {
     if (this != &other) {

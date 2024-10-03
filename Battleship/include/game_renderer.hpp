@@ -18,7 +18,7 @@ public:
     
     ~GameRenderer();
     
-    void renderGameMap(GameMap& game_map);
+    void renderGameMap(const GameMap& game_map);
 
 private:
     std::vector<std::vector<std::string>> game_map_; // solution for CLI (in GUI no additional memory usage)
