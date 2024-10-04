@@ -1,5 +1,6 @@
 #include "../include/ship.hpp"
 
+#include <cstdint>
 #include <stdexcept>
 #include <vector>
 
@@ -10,10 +11,14 @@ Ship::Ship()
     : Ship(1)
 {}
 
-Ship::Ship(int size)
+Ship::Ship(uint32_t size)
     : kMaxSegmentHealth(2)
-    , ship_segments_(size, Ship::Segment(kMaxSegmentHealth))
-{}
+    , ship_segments_(size, Ship::Segment(kMaxSegmentHealth)) // mb move it inside scope?
+{
+    if (size == 0) {
+        throw std::invalid_argument("Ship size must be greater than 0");
+    }
+}
 
 Ship::Ship(const Ship& other)
     : kMaxSegmentHealth(other.kMaxSegmentHealth)
@@ -45,7 +50,7 @@ int Ship::maxSegmentHealth() const {
     return kMaxSegmentHealth;
 }
 
-int Ship::size() const {
+uint32_t Ship::size() const {
     return ship_segments_.size();
 }
 
@@ -69,7 +74,7 @@ Ship::Status Ship::status() const {
     return Status::kDamaged;
 }
 
-int Ship::segmentHealth(int segment_index) const {
+int Ship::segmentHealth(uint32_t segment_index) const {
     if (segment_index < 0 || segment_index >= size()) {
         throw std::out_of_range("segment index out of range");
     }
@@ -78,7 +83,7 @@ int Ship::segmentHealth(int segment_index) const {
 
 }
 
-void Ship::damageSegment(int segment_index, int damage) {
+void Ship::damageSegment(uint32_t segment_index, int damage) {
     if (segment_index < 0 || segment_index >= size()) {
         throw std::out_of_range("segment index out of range");
     }
@@ -86,7 +91,7 @@ void Ship::damageSegment(int segment_index, int damage) {
     ship_segments_[segment_index].dealDamage(damage);
 }
 
-void Ship::repairSegment(int segment_index, int recoveryHealth) {
+void Ship::repairSegment(uint32_t segment_index, int recoveryHealth) {
     if (segment_index < 0 || segment_index >= size()) {
         throw std::out_of_range("segment index out of range");
     }
@@ -98,7 +103,7 @@ Ship::Segment::Segment()
     : Segment(0)
 {}
 
-Ship::Segment::Segment(int max_health)
+Ship::Segment::Segment(uint32_t max_health)
     : max_health_(max_health)
     , health_(max_health)
 {}
@@ -120,10 +125,16 @@ Ship::Status Ship::Segment::status() const {
 }
 
 void Ship::Segment::dealDamage(int damage) {
+    if (damage < 0) {
+        throw std::invalid_argument("Damage cannot be negative");
+    }
     health_ = std::max(0, health_ - damage);
 }
 
 void Ship::Segment::increaseHealth(int recoveryHealth) {
+    if (recoveryHealth < 0) {
+        throw std::invalid_argument("Recovery health cannot be negative");
+    }
     health_ = std::min(max_health_, health_ + recoveryHealth);
 }
 

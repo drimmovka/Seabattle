@@ -1,6 +1,7 @@
 #ifndef SHIP_HPP_
 #define SHIP_HPP_
 
+#include <cstdint>
 #include <vector>
 
 namespace battleship
@@ -22,7 +23,7 @@ public:
 
     Ship();
     
-    explicit Ship(int size);
+    explicit Ship(uint32_t size);
 
     Ship(const Ship& other);
 
@@ -36,15 +37,15 @@ public:
     
     int maxSegmentHealth() const;
     
-    int size() const;
+    uint32_t size() const;
 
     Ship::Status status() const;
     
-    int segmentHealth(int segment_index) const;
+    int segmentHealth(uint32_t segment_index) const;
 
-    void damageSegment(int segment_index, int damage);
+    void damageSegment(uint32_t segment_index, int damage);
 
-    void repairSegment(int segment_index, int recoveryHealth);
+    void repairSegment(uint32_t segment_index, int recoveryHealth);
 
 private:
     class Segment {
@@ -52,7 +53,7 @@ private:
         
         Segment();
 
-        Segment(int max_health);
+        Segment(uint32_t max_health);
 
         ~Segment();
 

@@ -67,6 +67,13 @@ int main() {
     game_map.attack({4, 2}, 1);
     game_map.attack({5, 2}, 2);
 
+    game_map.attack({-1, -1}, 2);
+    game_map.attack({9, 9}, 2);
+
+    // game_map.attack({0, 0}, -10); // see how to handle invalid arguments
+    game_map.attack({0, 0}, 10);
+
+
     game_renderer.renderGameMap(game_map);
     std::cout << std::endl;
 

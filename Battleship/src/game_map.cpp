@@ -4,6 +4,7 @@
 #include "../include/ship.hpp"
 #include "../include/collision_handler.hpp"
 
+#include <cstdint>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -16,7 +17,7 @@ GameMap::GameMap()
     : GameMap(0, 0)
 {}
 
-GameMap::GameMap(int width, int height)
+GameMap::GameMap(uint32_t width, uint32_t height)
     : width_(width)
     , height_(height)
 {}
@@ -57,11 +58,11 @@ GameMap& GameMap::operator=(GameMap&& other) {
     return *this;
 }
 
-int GameMap::width() const {
+uint32_t GameMap::width() const {
     return width_;
 }
 
-int GameMap::height() const {
+uint32_t GameMap::height() const {
     return height_;
 }
 
@@ -107,7 +108,7 @@ bool GameMap::sameShip(const Ship *a, const Ship *b) const {
     return (a == b);
 }
 
-CollisionBounds GameMap::calculateCollisionBounds(int ship_size, Coords top_left, Ship::Orientation orientation) {
+CollisionBounds GameMap::calculateCollisionBounds(uint32_t ship_size, Coords top_left, Ship::Orientation orientation) {
     
     HitBox shaping_hit_box;
     HitBox wrapping_hit_box;
@@ -115,14 +116,14 @@ CollisionBounds GameMap::calculateCollisionBounds(int ship_size, Coords top_left
     if (orientation == Ship::Orientation::kHorizontal) {
         shaping_hit_box = {
             {top_left.x, top_left.y},
-            {top_left.x + ship_size - 1, top_left.y}
+            {top_left.x + (int)ship_size - 1, top_left.y}
         };
     }
 
     if (orientation == Ship::Orientation::kVertical) {
         shaping_hit_box = {
             {top_left.x, top_left.y},
-            {top_left.x, top_left.y + ship_size - 1}
+            {top_left.x, top_left.y + (int)ship_size - 1}
         };
     }
 

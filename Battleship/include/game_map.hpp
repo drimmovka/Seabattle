@@ -5,6 +5,7 @@
 #include "ship.hpp"
 #include "collision_handler.hpp"
 
+#include <cstdint>
 #include <unordered_map>
 #include <unordered_set>
 
@@ -16,7 +17,7 @@ public:
 
     GameMap();
 
-    explicit GameMap(int width, int height);
+    explicit GameMap(uint32_t width, uint32_t height);
 
     GameMap(const GameMap& other);
 
@@ -28,9 +29,9 @@ public:
 
     GameMap& operator=(GameMap&& other);
     
-    int width() const;
+    uint32_t width() const;
     
-    int height() const;
+    uint32_t height() const;
     
     const std::unordered_map<Ship *, CollisionBounds>& ships() const;
     
@@ -44,12 +45,12 @@ private:
 
     bool sameShip(const Ship *a, const Ship *b) const;
 
-    CollisionBounds calculateCollisionBounds(int ship_size, Coords top_left, Ship::Orientation orientation);
+    CollisionBounds calculateCollisionBounds(uint32_t ship_size, Coords top_left, Ship::Orientation orientation);
     
     std::unordered_map<Ship *, CollisionBounds> ships_; // CHANGE TO Q-TREE
     std::unordered_set<Coords, CoordsHash> opened_cells_;
-    int width_;
-    int height_;
+    uint32_t width_;
+    uint32_t height_;
     CollisionHandler collision_handler_;
 };
 

@@ -1,0 +1,36 @@
+digraph Battleship {
+    // Defining styles
+    node [shape=record];
+
+    // Defining nodes (classes and structures)
+    Coords [label="{ Coords | x : int | y : int | + operator==(other: Coords) : bool }"];
+    CoordsHash [label="{ CoordsHash | + operator()(coords: Coords) : size_t }"];
+    
+    HitBox [label="{ HitBox | top_left : Coords | bottom_right : Coords }"];
+    CollisionBounds [label="{ CollisionBounds | shaping : HitBox | wrapping : HitBox }"];
+    
+    CollisionHandler [label="{ CollisionHandler | + CollisionHandler() | + ~CollisionHandler() | + hitBoxCollision(a: HitBox, b: HitBox) : bool | + insideGameMap(hit_box: HitBox, width: int, height: int) : bool | + hitScan(shot_coords: Coords, hit_box: HitBox) : int | - coordsInsideHitBox(coords: Coords, hit_box: const HitBox&) : bool}"];
+    
+    GameMap [label="{ GameMap | + GameMap() | + GameMap(width: uint32_t, height: uint32_t) | + GameMap(other: GameMap) | + GameMap(other: GameMap&&) | + ~GameMap() | + operator=(other: GameMap) | + operator=(other: GameMap&&) | + width() : uint32_t | + height() : uint32_t | + ships() : const std::unordered_map<Ship*, CollisionBounds>& | + setShip(ship: Ship*, top_left: Coords, orientation: Ship::Orientation) | + attack(shot_coords: Coords, damage: int) | - possibleToSet(ship: Ship*, collision_bounds: CollisionBounds) : bool | - sameShip(a: const Ship*, b: const Ship*) : bool | - calculateCollisionBounds(ship_size: uint32_t, top_left: Coords, orientation: Ship::Orientation) : CollisionBounds }"];
+    
+    ShipManager [label="{ ShipManager | + ShipManager() | + ShipManager(ship_sizes: std::vector<uint32_t>) | + ShipManager(other: ShipManager) | + ShipManager(other: ShipManager&&) | + ~ShipManager() | + operator=(other: ShipManager) | + operator=(other: ShipManager&&) | + shipsNumber() : uint32_t | + allDestroyed() : bool | + addShip(ship_size: uint32_t) | + removeShip(ship_index: uint32_t) | + displayInfo() : void }"];
+
+    Ship [label="{ Ship | + Ship() | + Ship(size: uint32_t) | + Ship(other: Ship) | + Ship(other: Ship&&) | + ~Ship() | + operator=(other: Ship) | + operator=(other: Ship&&) | + maxSegmentHealth() : int | + size() : uint32_t | + status() : Status | + segmentHealth(segment_index: uint32_t) : int | + damageSegment(segment_index: uint32_t, damage: int) : void | + repairSegment(segment_index: uint32_t, recoveryHealth: int) : void }"];
+    
+    Segment [label="{ Segment | + Segment() | + Segment(max_health: uint32_t) | + ~Segment() | + health() : int | + status() : Status | + dealDamage(damage: int) : void | + increaseHealth(recoveryHealth: int) : void }"];
+
+    // Defining relationships
+    CollisionHandler -> HitBox;
+    CollisionHandler -> CollisionBounds;
+    
+    GameMap -> CollisionHandler;
+    GameMap -> Ship;
+    
+    ShipManager -> Ship;
+
+    Ship -> Segment [label="contains"];
+    
+    // Relationships between structures and classes
+    HitBox -> Coords [label="contains"];
+    CollisionBounds -> HitBox [label="contains"];
+}

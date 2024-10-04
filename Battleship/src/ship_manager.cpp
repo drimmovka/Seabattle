@@ -2,6 +2,7 @@
 
 #include "../include/ship.hpp"
 
+#include <cstdint>
 #include <vector>
 #include <iostream>
 
@@ -10,7 +11,7 @@ namespace battleship
 
 ShipManager::ShipManager() = default;
     
-ShipManager::ShipManager(const std::vector<int> &ship_sizes) {
+ShipManager::ShipManager(const std::vector<uint32_t> &ship_sizes) {
     for (auto& ship_size : ship_sizes) {
         Ship *new_ship = new Ship(ship_size);
         ships_.push_back(new_ship);
@@ -55,16 +56,16 @@ bool ShipManager::allDestroyed() const {
     return all_destroyed;
 }
 
-int ShipManager::shipsNumber() const {
+uint32_t ShipManager::shipsNumber() const {
     return ships_.size();
 }
 
-void ShipManager::addShip(int ship_size) {
+void ShipManager::addShip(uint32_t ship_size) {
     Ship *new_ship = new Ship(ship_size);
     ships_.push_back(new_ship);
 }
 
-void ShipManager::removeShip(int ship_index) {
+void ShipManager::removeShip(uint32_t ship_index) {
     if (ship_index < 0 || ship_index >= shipsNumber()) {
         throw std::out_of_range("segment index out of range");
     }

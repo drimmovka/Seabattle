@@ -6,6 +6,7 @@
 
 #include <stdexcept> // FOR DEBUGGING HERE (REMOVE FROM H)
 
+#include <cstdint>
 #include <vector>
 #include <initializer_list>
 
@@ -21,7 +22,7 @@ class ShipManager {
 public:
     ShipManager();
     
-    ShipManager(const std::vector<int> &ship_sizes);
+    ShipManager(const std::vector<uint32_t> &ship_sizes);
     
     ShipManager(const ShipManager& other);
 
@@ -33,18 +34,18 @@ public:
     
     ShipManager& operator=(ShipManager&& other);
 
-    int shipsNumber() const;
+    uint32_t shipsNumber() const;
 
     bool allDestroyed() const;
     
-    void addShip(int ship_size);
+    void addShip(uint32_t ship_size);
     
-    void removeShip(int ship_index);
+    void removeShip(uint32_t ship_index);
 
     void displayInfo() const;
 
     // TEMPORARY FOR DEBUGGING!!!
-    Ship* operator[](int ship_index) {
+    Ship* operator[](uint32_t ship_index) {
         if (ship_index < 0 || ship_index >= shipsNumber()) {
             throw std::out_of_range("segment index out of range");
         }
