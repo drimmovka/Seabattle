@@ -129,101 +129,125 @@ battleship/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/build
 .PHONY : battleship/fast
 
-src/collision_handler.o: src/collision_handler.cpp.o
-.PHONY : src/collision_handler.o
+src/Coords.o: src/Coords.cpp.o
+.PHONY : src/Coords.o
 
 # target to build an object file
-src/collision_handler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/collision_handler.cpp.o
-.PHONY : src/collision_handler.cpp.o
+src/Coords.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/Coords.cpp.o
+.PHONY : src/Coords.cpp.o
 
-src/collision_handler.i: src/collision_handler.cpp.i
-.PHONY : src/collision_handler.i
+src/Coords.i: src/Coords.cpp.i
+.PHONY : src/Coords.i
 
 # target to preprocess a source file
-src/collision_handler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/collision_handler.cpp.i
-.PHONY : src/collision_handler.cpp.i
+src/Coords.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/Coords.cpp.i
+.PHONY : src/Coords.cpp.i
 
-src/collision_handler.s: src/collision_handler.cpp.s
-.PHONY : src/collision_handler.s
+src/Coords.s: src/Coords.cpp.s
+.PHONY : src/Coords.s
 
 # target to generate assembly for a file
-src/collision_handler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/collision_handler.cpp.s
-.PHONY : src/collision_handler.cpp.s
+src/Coords.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/Coords.cpp.s
+.PHONY : src/Coords.cpp.s
 
-src/coords.o: src/coords.cpp.o
-.PHONY : src/coords.o
+src/GameMap.o: src/GameMap.cpp.o
+.PHONY : src/GameMap.o
 
 # target to build an object file
-src/coords.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/coords.cpp.o
-.PHONY : src/coords.cpp.o
+src/GameMap.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/GameMap.cpp.o
+.PHONY : src/GameMap.cpp.o
 
-src/coords.i: src/coords.cpp.i
-.PHONY : src/coords.i
+src/GameMap.i: src/GameMap.cpp.i
+.PHONY : src/GameMap.i
 
 # target to preprocess a source file
-src/coords.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/coords.cpp.i
-.PHONY : src/coords.cpp.i
+src/GameMap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/GameMap.cpp.i
+.PHONY : src/GameMap.cpp.i
 
-src/coords.s: src/coords.cpp.s
-.PHONY : src/coords.s
+src/GameMap.s: src/GameMap.cpp.s
+.PHONY : src/GameMap.s
 
 # target to generate assembly for a file
-src/coords.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/coords.cpp.s
-.PHONY : src/coords.cpp.s
+src/GameMap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/GameMap.cpp.s
+.PHONY : src/GameMap.cpp.s
 
-src/game_map.o: src/game_map.cpp.o
-.PHONY : src/game_map.o
+src/GameRenderer.o: src/GameRenderer.cpp.o
+.PHONY : src/GameRenderer.o
 
 # target to build an object file
-src/game_map.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/game_map.cpp.o
-.PHONY : src/game_map.cpp.o
+src/GameRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/GameRenderer.cpp.o
+.PHONY : src/GameRenderer.cpp.o
 
-src/game_map.i: src/game_map.cpp.i
-.PHONY : src/game_map.i
+src/GameRenderer.i: src/GameRenderer.cpp.i
+.PHONY : src/GameRenderer.i
 
 # target to preprocess a source file
-src/game_map.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/game_map.cpp.i
-.PHONY : src/game_map.cpp.i
+src/GameRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/GameRenderer.cpp.i
+.PHONY : src/GameRenderer.cpp.i
 
-src/game_map.s: src/game_map.cpp.s
-.PHONY : src/game_map.s
+src/GameRenderer.s: src/GameRenderer.cpp.s
+.PHONY : src/GameRenderer.s
 
 # target to generate assembly for a file
-src/game_map.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/game_map.cpp.s
-.PHONY : src/game_map.cpp.s
+src/GameRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/GameRenderer.cpp.s
+.PHONY : src/GameRenderer.cpp.s
 
-src/game_renderer.o: src/game_renderer.cpp.o
-.PHONY : src/game_renderer.o
+src/Ship.o: src/Ship.cpp.o
+.PHONY : src/Ship.o
 
 # target to build an object file
-src/game_renderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/game_renderer.cpp.o
-.PHONY : src/game_renderer.cpp.o
+src/Ship.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/Ship.cpp.o
+.PHONY : src/Ship.cpp.o
 
-src/game_renderer.i: src/game_renderer.cpp.i
-.PHONY : src/game_renderer.i
+src/Ship.i: src/Ship.cpp.i
+.PHONY : src/Ship.i
 
 # target to preprocess a source file
-src/game_renderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/game_renderer.cpp.i
-.PHONY : src/game_renderer.cpp.i
+src/Ship.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/Ship.cpp.i
+.PHONY : src/Ship.cpp.i
 
-src/game_renderer.s: src/game_renderer.cpp.s
-.PHONY : src/game_renderer.s
+src/Ship.s: src/Ship.cpp.s
+.PHONY : src/Ship.s
 
 # target to generate assembly for a file
-src/game_renderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/game_renderer.cpp.s
-.PHONY : src/game_renderer.cpp.s
+src/Ship.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/Ship.cpp.s
+.PHONY : src/Ship.cpp.s
+
+src/ShipManager.o: src/ShipManager.cpp.o
+.PHONY : src/ShipManager.o
+
+# target to build an object file
+src/ShipManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ShipManager.cpp.o
+.PHONY : src/ShipManager.cpp.o
+
+src/ShipManager.i: src/ShipManager.cpp.i
+.PHONY : src/ShipManager.i
+
+# target to preprocess a source file
+src/ShipManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ShipManager.cpp.i
+.PHONY : src/ShipManager.cpp.i
+
+src/ShipManager.s: src/ShipManager.cpp.s
+.PHONY : src/ShipManager.s
+
+# target to generate assembly for a file
+src/ShipManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ShipManager.cpp.s
+.PHONY : src/ShipManager.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -249,54 +273,6 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/ship.o: src/ship.cpp.o
-.PHONY : src/ship.o
-
-# target to build an object file
-src/ship.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ship.cpp.o
-.PHONY : src/ship.cpp.o
-
-src/ship.i: src/ship.cpp.i
-.PHONY : src/ship.i
-
-# target to preprocess a source file
-src/ship.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ship.cpp.i
-.PHONY : src/ship.cpp.i
-
-src/ship.s: src/ship.cpp.s
-.PHONY : src/ship.s
-
-# target to generate assembly for a file
-src/ship.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ship.cpp.s
-.PHONY : src/ship.cpp.s
-
-src/ship_manager.o: src/ship_manager.cpp.o
-.PHONY : src/ship_manager.o
-
-# target to build an object file
-src/ship_manager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ship_manager.cpp.o
-.PHONY : src/ship_manager.cpp.o
-
-src/ship_manager.i: src/ship_manager.cpp.i
-.PHONY : src/ship_manager.i
-
-# target to preprocess a source file
-src/ship_manager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ship_manager.cpp.i
-.PHONY : src/ship_manager.cpp.i
-
-src/ship_manager.s: src/ship_manager.cpp.s
-.PHONY : src/ship_manager.s
-
-# target to generate assembly for a file
-src/ship_manager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/battleship.dir/build.make CMakeFiles/battleship.dir/src/ship_manager.cpp.s
-.PHONY : src/ship_manager.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -306,27 +282,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... battleship"
-	@echo "... src/collision_handler.o"
-	@echo "... src/collision_handler.i"
-	@echo "... src/collision_handler.s"
-	@echo "... src/coords.o"
-	@echo "... src/coords.i"
-	@echo "... src/coords.s"
-	@echo "... src/game_map.o"
-	@echo "... src/game_map.i"
-	@echo "... src/game_map.s"
-	@echo "... src/game_renderer.o"
-	@echo "... src/game_renderer.i"
-	@echo "... src/game_renderer.s"
+	@echo "... src/Coords.o"
+	@echo "... src/Coords.i"
+	@echo "... src/Coords.s"
+	@echo "... src/GameMap.o"
+	@echo "... src/GameMap.i"
+	@echo "... src/GameMap.s"
+	@echo "... src/GameRenderer.o"
+	@echo "... src/GameRenderer.i"
+	@echo "... src/GameRenderer.s"
+	@echo "... src/Ship.o"
+	@echo "... src/Ship.i"
+	@echo "... src/Ship.s"
+	@echo "... src/ShipManager.o"
+	@echo "... src/ShipManager.i"
+	@echo "... src/ShipManager.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/ship.o"
-	@echo "... src/ship.i"
-	@echo "... src/ship.s"
-	@echo "... src/ship_manager.o"
-	@echo "... src/ship_manager.i"
-	@echo "... src/ship_manager.s"
 .PHONY : help
 
 

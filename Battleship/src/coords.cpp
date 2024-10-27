@@ -1,4 +1,4 @@
-#include "../include/coords.hpp"
+#include "../include/Coords.hpp"
 
 #include <cstddef>
 #include <functional>

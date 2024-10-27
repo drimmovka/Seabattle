@@ -1,21 +1,16 @@
-#include "../include/ship.hpp"
+#include "../include/Ship.hpp"
 
-#include <cstdint>
 #include <stdexcept>
 #include <vector>
 
 namespace battleship
 {
 
-Ship::Ship()
-    : Ship(1)
-{}
-
-Ship::Ship(uint32_t size)
+Ship::Ship(int size)
     : kMaxSegmentHealth(2)
-    , ship_segments_(size, Ship::Segment(kMaxSegmentHealth)) // mb move it inside scope?
+    , ship_segments_( (size > 0) ? size : 0, Ship::Segment(kMaxSegmentHealth))
 {
-    if (size == 0) {
+    if (this->size() == 0) {
         throw std::invalid_argument("Ship size must be greater than 0");
     }
 }
@@ -34,14 +29,14 @@ Ship::~Ship() = default;
 
 Ship& Ship::operator=(const Ship& other) {
     if (this != &other) {
-        this->ship_segments_ = other.ship_segments_;
+        ship_segments_ = other.ship_segments_;
     }
     return *this;
 }
 
 Ship& Ship::operator=(Ship&& other) {
     if (this != &other) {
-        this->ship_segments_ = std::move(other.ship_segments_);
+        ship_segments_ = std::move(other.ship_segments_);
     }
     return *this;
 }
@@ -50,7 +45,7 @@ int Ship::maxSegmentHealth() const {
     return kMaxSegmentHealth;
 }
 
-uint32_t Ship::size() const {
+int Ship::size() const {
     return ship_segments_.size();
 }
 
@@ -74,36 +69,23 @@ Ship::Status Ship::status() const {
     return Status::kDamaged;
 }
 
-int Ship::segmentHealth(uint32_t segment_index) const {
-    if (segment_index < 0 || segment_index >= size()) {
-        throw std::out_of_range("segment index out of range");
+int Ship::segmentHealth(int segment_index) const {
+    if (segment_index < 0 || segment_index >= this->size()) {
+        throw std::out_of_range("Segment index out of range");
     }
 
     return ship_segments_[segment_index].health();
-
 }
 
-void Ship::damageSegment(uint32_t segment_index, int damage) {
-    if (segment_index < 0 || segment_index >= size()) {
-        throw std::out_of_range("segment index out of range");
+void Ship::damageSegment(int segment_index, int damage) {
+    if (segment_index < 0 || segment_index >= this->size()) {
+        throw std::out_of_range("Segment index out of range");
     }
 
     ship_segments_[segment_index].dealDamage(damage);
 }
 
-void Ship::repairSegment(uint32_t segment_index, int recoveryHealth) {
-    if (segment_index < 0 || segment_index >= size()) {
-        throw std::out_of_range("segment index out of range");
-    }
-
-    ship_segments_[segment_index].increaseHealth(recoveryHealth);
-}
-
-Ship::Segment::Segment()
-    : Segment(0)
-{}
-
-Ship::Segment::Segment(uint32_t max_health)
+Ship::Segment::Segment(int max_health)
     : max_health_(max_health)
     , health_(max_health)
 {}
@@ -129,13 +111,6 @@ void Ship::Segment::dealDamage(int damage) {
         throw std::invalid_argument("Damage cannot be negative");
     }
     health_ = std::max(0, health_ - damage);
-}
-
-void Ship::Segment::increaseHealth(int recoveryHealth) {
-    if (recoveryHealth < 0) {
-        throw std::invalid_argument("Recovery health cannot be negative");
-    }
-    health_ = std::min(max_health_, health_ + recoveryHealth);
 }
 
 } // battleship

@@ -1,13 +1,12 @@
 #include <iostream>
 
 
-// MAKE ONE HEADER FOR ALL aka battleship.h
-#include "../include/coords.hpp"
-#include "../include/ship.hpp"
-#include "../include/collision_handler.hpp"
-#include "../include/game_map.hpp"
-#include "../include/ship_manager.hpp"
-#include "../include/game_renderer.hpp"
+// MAKE ONE HEADER FOR ALL aka battleship.hpp
+#include "../include/Coords.hpp"
+#include "../include/Ship.hpp"
+#include "../include/GameMap.hpp"
+#include "../include/ShipManager.hpp"
+#include "../include/GameRenderer.hpp"
 
 int main() {
     battleship::GameMap game_map(10, 10);

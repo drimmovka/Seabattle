@@ -6,13 +6,10 @@ project(battleship)
 
 set(SOURCE_FILES
     ./src/main.cpp
-    ./src/collision_handler.cpp
-    ./src/coords.cpp
-    ./src/game_map.cpp
-    ./src/game_renderer.cpp
-    ./src/ship_manager.cpp
-    ./src/ship.cpp)
+    ./src/Coords.cpp
+    ./src/GameMap.cpp
+    ./src/GameRenderer.cpp
+    ./src/ShipManager.cpp
+    ./src/Ship.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
-
-# target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

@@ -1,7 +1,6 @@
 #ifndef SHIP_HPP_
 #define SHIP_HPP_
 
-#include <cstdint>
 #include <vector>
 
 namespace battleship
@@ -9,7 +8,7 @@ namespace battleship
 
 class Ship {
 public:
-
+    
     enum class Status : int {
         kIntact,
         kDamaged,
@@ -21,9 +20,35 @@ public:
         kVertical,
     };
 
-    Ship();
+    class Segment {
+    public:
+        
+        explicit Segment(int max_health = 0);
+
+        ~Segment();
+
+        int health() const;
+
+        Status status() const;
+
+        void dealDamage(int damage);
+        
+    private:
+        int max_health_;
+        int health_;
     
-    explicit Ship(uint32_t size);
+    };
+
+private:
+
+    const int kMaxSegmentHealth;
+    std::vector<Ship::Segment> ship_segments_;
+
+    bool segmentIndexOutOfRange(int segment_index) const;
+
+public:
+
+    explicit Ship(int size = 1);
 
     Ship(const Ship& other);
 
@@ -37,42 +62,14 @@ public:
     
     int maxSegmentHealth() const;
     
-    uint32_t size() const;
+    int size() const;
 
     Ship::Status status() const;
     
-    int segmentHealth(uint32_t segment_index) const;
+    int segmentHealth(int segment_index) const;
 
-    void damageSegment(uint32_t segment_index, int damage);
+    void damageSegment(int segment_index, int damage);
 
-    void repairSegment(uint32_t segment_index, int recoveryHealth);
-
-private:
-    class Segment {
-    public:
-        
-        Segment();
-
-        Segment(uint32_t max_health);
-
-        ~Segment();
-
-        int health() const;
-
-        Status status() const;
-
-        void dealDamage(int damage);
-        
-        void increaseHealth(int recoveryHealth);
-
-    private:
-        int max_health_;
-        int health_;
-    
-    };
-
-    const int kMaxSegmentHealth;
-    std::vector<Ship::Segment> ship_segments_;
 };
 
 } // battleship
