@@ -1,0 +1,10 @@
+attack    atk
+stop      stop
+set       set
+placerand plrnd
+applyB    aB
+applyDD   aDD
+ready     r
+applyS    aS
+save      save
+load      load
