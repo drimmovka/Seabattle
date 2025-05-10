@@ -12,4 +12,4 @@ cmake -B build && cmake --build build
 ./run.bat
 ```
 
-**GUI is not working right now, when it will, don't forget to add files from `./dll` to `./build/Debug`*
+*GUI is not working right now, when it will, don't forget to add files from `./dll` to `./build/Debug`*
