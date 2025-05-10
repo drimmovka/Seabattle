@@ -1,21 +1,15 @@
 # Seabattle
 
-
-unzip
+Сonnect submodules
 ```
-include/SFML.rar
-```
-
-create dir
-```
-build
+git submodule init
+git submodule update
 ```
 
-to start
+Build and launch
 ```
-./build.bat
-
-add files from ./dll to ./build/Debug
-
+cmake -B build && cmake --build build
 ./run.bat
 ```
+
+**GUI is not working right now, when it will, don't forget to add files from `./dll` to `./build/Debug`*

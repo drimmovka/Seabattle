@@ -1,0 +1,10 @@
+^C:\USERS\DRIMM\REPO\SEABATTLE\BUILD\CMAKEFILES\552F14D96C94AE94F37F8993691010EC\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/drimm/repo/Seabattle -BC:/Users/drimm/repo/Seabattle/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/drimm/repo/Seabattle/build/seabattle.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
